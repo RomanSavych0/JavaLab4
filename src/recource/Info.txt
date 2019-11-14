@@ -1,0 +1,7 @@
+Low 12 123
+Medium 34 150
+Premium 32 151
+Low 311 1580
+Low 334 15220
+Medium 3413 151320
+Low 34313 1513120

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Logic implements ILogic {
+public  class Logic implements ILogic {
     @Override
     public int getPassengerNumber(List<Car>cars){
         int passengerNumber = 0;
@@ -24,15 +24,13 @@ public class Logic implements ILogic {
 
 
     @Override
-    public double getBaggageCount(List<Car>cars) {
+    public  double getBaggageCount(List<Car> cars) {
 
         double baggadgeNumber = 0;
         for (int i = 0; i < cars.size(); i++) {
         baggadgeNumber += cars.get(i).getBaggageNumber();
-
-
-
         }
+
         return baggadgeNumber;
 
 
@@ -53,6 +51,15 @@ public class Logic implements ILogic {
         }
 
         return byDiapazon;
+    }
+
+
+    @Override
+    public void printAllVagons(List<Car> cars) {
+        for (Car car :cars
+             ) {
+            System.out.println(car);
+                 }
     }
 
 

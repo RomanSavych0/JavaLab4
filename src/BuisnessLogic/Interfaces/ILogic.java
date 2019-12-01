@@ -11,6 +11,7 @@ public interface ILogic {
     double getBaggageCount(List<Car>cars);
     void sortByComfortLevel(List<Car>cars);
     List<Car> getCarByPassengerNumber(List<Car>cars , int min , int max);
+    void printAllVagons(List<Car>cars);
 
 
 }

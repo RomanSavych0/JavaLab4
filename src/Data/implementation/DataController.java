@@ -1,7 +1,7 @@
 package Data.implementation;
 
-import BuisnessLogic.Implementation.*;
-import BuisnessLogic.Interfaces.Command;
+import Logic.Implementation.*;
+import Logic.Interfaces.Command;
 import Data.CarClases.Car;
 import Data.Interfaces.IData;
 
@@ -17,7 +17,10 @@ public class DataController implements IData {
     Command sortByComfortlevel;
     Command printAllVagons;
 
-
+    public  void setCars(List<Car> Cars)
+    {
+        this.Cars = Cars;
+    }
     public DataController() {
         List<Car> cars = new ArrayList<Car>();
         Cars = cars;
@@ -45,11 +48,15 @@ public class DataController implements IData {
 
     public void sortByComfortLevel() {
         sortByComfortlevel.execute();
-
     }
-
     public void printAllvagons() {
         printAllVagons.execute();
+
+    }
+    public void setGetByPassengerNumber(int min, int max)
+    {
+        this.getByPassengerNumber = new getByPassengerNumber(Cars , min , max );
+
     }
 
 

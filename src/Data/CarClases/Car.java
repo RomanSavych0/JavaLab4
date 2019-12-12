@@ -1,5 +1,7 @@
 package Data.CarClases;
 
+import java.util.Objects;
+
 public abstract class Car implements Comparable<Car> {
     private int passengerNumber;
     private double baggageNumber;
@@ -41,6 +43,21 @@ public abstract class Car implements Comparable<Car> {
         return baggageNumber;
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return passengerNumber == car.passengerNumber &&
+                Double.compare(car.baggageNumber, baggageNumber) == 0 &&
+                comfortLevel == car.comfortLevel;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(passengerNumber, baggageNumber, comfortLevel);
+    }
 
     public int getPassengerNumber() {
         return passengerNumber;

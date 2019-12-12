@@ -1,6 +1,6 @@
-package BuisnessLogic.Implementation;
+package Logic.Implementation;
 
-import BuisnessLogic.Interfaces.Command;
+import Logic.Interfaces.Command;
 import Data.CarClases.Car;
 
 import java.util.List;
@@ -15,8 +15,7 @@ public class printAllVagons implements Command {
     }
 
     @Override
-    public void execute()
-    {
+    public void execute() {
         logic.printAllVagons(data);
     }
 

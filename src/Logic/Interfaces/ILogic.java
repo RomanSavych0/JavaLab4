@@ -1,8 +1,7 @@
-package BuisnessLogic.Interfaces;
+package Logic.Interfaces;
 
 import Data.CarClases.Car;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface ILogic {

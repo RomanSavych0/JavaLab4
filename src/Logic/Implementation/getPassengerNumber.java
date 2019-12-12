@@ -1,6 +1,6 @@
-package BuisnessLogic.Implementation;
+package Logic.Implementation;
 
-import BuisnessLogic.Interfaces.Command;
+import Logic.Interfaces.Command;
 import Data.CarClases.Car;
 
 import java.util.List;

@@ -6,7 +6,6 @@ import Data.CarClases.CarMediumLevel;
 import Data.CarClases.CarPremiumLevel;
 import Data.implementation.DataController;
 import recource.GetFromFile;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,13 +20,13 @@ public class testCommand {
 
     public static void main(String[] args) throws IOException {
         Scanner sc;
-     FileHandler hendler = null;
-
+        boolean fromfile = false;
+        DataController dataFromFile = new DataController();
         List<Car> list = new ArrayList<>();
-        System.out.println("Create Vagons    0  - exit");
-        System.out.println("Create Low-Level Vagon - 1");
-        System.out.println("Create Medium-Level Vagon - 2");
-        System.out.println("Create Premium-Level Vagon - 3");
+        System.out.println("Create Car    0  - exit");
+        System.out.println("Create Low-Level Car - 1");
+        System.out.println("Create Medium-Level Car - 2");
+        System.out.println("Create Premium-Level Car - 3");
         System.out.println("Read  Info From File  - 4");
 
         while (true) {
@@ -42,7 +41,7 @@ public class testCommand {
                 Car carLowlevel = new CarLowLevel(passengerNumber, bagadgeCount);
                 list.add(carLowlevel);
 
-                LOGGER.info("Low Level Vagon was Created");
+                LOGGER.info("Low Level Car was Created");
 
                 //Logger
             }
@@ -57,7 +56,7 @@ public class testCommand {
                 list.add(carMediumlevel);
 
                 //Logger
-                LOGGER.info("Medium Level Vagon was Created");
+                LOGGER.info("Medium Level Car was Created");
 
 
             }
@@ -72,15 +71,15 @@ public class testCommand {
                 list.add(carLowlevel);
 
                 //Logger
-                LOGGER.info("Premium Level Vagon was Created");
+                LOGGER.info("Premium Level Car was Created");
 
             }
             if (choice == 4) {
 
                 GetFromFile frofile = new GetFromFile();
-                DataController data2 = frofile.getInfoFromFile();
+                  dataFromFile = frofile.getInfoFromFile();
 
-
+                fromfile = true;
             }
             if (choice == 0) {
                 break;
@@ -88,16 +87,22 @@ public class testCommand {
 
 
         }
-
-        DataController data = new DataController(list);
-
+        DataController data = new DataController();
+            if(!fromfile) {
+                 data = new DataController(list);
+            }
+            else {
+                data = dataFromFile;
+            }
+            
+            
         System.out.println("get passenger number - 1 ");
         System.out.println("get bagadge  count  - 2 ");
         System.out.println("sort by Comfort level   - 3 ");
         System.out.println("print All Vagons   - 4 ");
-        System.out.println("Get Vagons by passenger number -5");
+        System.out.println("Get Car  by passenger number -5");
+        System.out.println("Delete Car - 6");
         System.out.println("exit   - 0 ");
-
         while (true) {
             sc = new Scanner(System.in);
             int choice = sc.nextInt();
@@ -121,6 +126,15 @@ public class testCommand {
                 data.setGetByPassengerNumber(min, max);
 
             }
+            if(choice == 6 )
+            {
+                System.out.println("Input Passenger number Car to delete : ");
+                int number =  sc.nextInt();
+                    data.deleteCar(number);
+
+
+            }
+
             if (choice == 0)
                 break;
         }

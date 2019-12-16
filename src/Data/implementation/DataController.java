@@ -11,12 +11,12 @@ import java.util.List;
 public class DataController implements IData {
     private List<Car> Cars;
 
-    Command getBagageCount;
-    Command getByPassengerNumber;
-    Command getPassengerNumber;
-    Command sortByComfortlevel;
-    Command printAllVagons;
-
+  private   Command getBagageCount;
+    private Command getByPassengerNumber;
+    private Command getPassengerNumber;
+    private  Command sortByComfortlevel;
+    private Command printAllVagons;
+private  Command deleteCar;
     public  void setCars(List<Car> Cars)
     {
         this.Cars = Cars;
@@ -49,13 +49,18 @@ public class DataController implements IData {
     public void sortByComfortLevel() {
         sortByComfortlevel.execute();
     }
-    public void printAllvagons() {
-        printAllVagons.execute();
+    public void printAllvagons() { printAllVagons.execute(); }
+    public  void deleteCar(int number)
+    {
+       this.deleteCar = new deleteCar( number , Cars);
+       deleteCar.execute();
 
     }
+
     public void setGetByPassengerNumber(int min, int max)
     {
         this.getByPassengerNumber = new getByPassengerNumber(Cars , min , max );
+        getByPassengerNumber.execute();
 
     }
 

@@ -71,5 +71,10 @@ public class Logic implements ILogic {
         }
     }
 
+    @Override
+    public void deleteCar(List<Car>cars , int number ) {
+        cars.removeIf(car -> car.getPassengerNumber() == number);
+    }
+
 
 }

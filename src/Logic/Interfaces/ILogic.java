@@ -11,6 +11,5 @@ public interface ILogic {
     void sortByComfortLevel(List<Car>cars);
     List<Car> getCarByPassengerNumber(List<Car>cars , int min , int max);
     void printAllVagons(List<Car>cars);
-
-
+    void deleteCar(List<Car> cars , int number);
 }
